@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.linear_model import LogisticRegression
-
+from sklearn.metrics import classification_report
 def main():
 
     #read data
@@ -33,7 +33,7 @@ def main():
     intercept = lr.intercept_
     coef = lr.coef_[0,:]
 
-    ly = (-intercept-lx*coef[0])/coef[1]
+    ly = (- intercept - lx*coef[0])/coef[1]
 
     plt.plot(lx, ly, 'green')
     plt.scatter(df_test_negative['Clump Thickness'], df_test_negative['Cell Size'], marker='o', s=200, c='red')
